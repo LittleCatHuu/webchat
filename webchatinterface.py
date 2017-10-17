@@ -33,7 +33,7 @@ class WeichatInterface:
 
     def POST(self):
         str_xml = web.data()
-        xml = etree.fromtring(str_xml)
+        xml = etree.fromstring(str_xml)
         msgType = xml.find('MsgType').text
         fromUser = xml.find('FromUseName').text
         toUser = xml.find('ToUserName').text
