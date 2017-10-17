@@ -30,3 +30,17 @@ class WeichatInterface:
         #如果是来自微信的请求，则回复echostr
         if  hashcode == signature:
             return echostr
+
+    def POST(self):
+        str_xml = web.data()
+        xml = etree.fromtring(str_xml)
+        msgType = xml.find('MsgType').text
+        fromUser = xml.find('FromUseName').text
+        toUser = xml.find('ToUserName').text
+        if msgType == 'text':
+            content = xml.find('Content').text
+            return(self.render.reply_text(fromUser,toUser,int(time.time(),content)))
+        elif msgType == 'image':
+            pass
+        else:
+            pass
