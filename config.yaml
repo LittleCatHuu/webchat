@@ -1,0 +1,8 @@
+name: webchat-person
+version:  1
+libraries:
+- name: webpy
+  version:  '0.4'
+
+- name: lxml
+  version:  '3.73'
