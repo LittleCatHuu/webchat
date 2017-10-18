@@ -4,7 +4,7 @@ import web
 import lxml
 import time
 import os
-
+import xml.etree.ElementTree as ET
 class WeichatInterface:
     def __init__(self):
         self.app_root = os.path.dirname(__file__)
@@ -33,7 +33,7 @@ class WeichatInterface:
 
     def POST(self):
         str_xml = web.data()
-        xml = etree.fromstring(str_xml)
+        xml = ET.fromstring(str_xml)
         msgType = xml.find('MsgType').text
         fromUser = xml.find('FromUseName').text
         toUser = xml.find('ToUserName').text
